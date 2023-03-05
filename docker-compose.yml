@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  solr:
+#    image: solr
+    image: 8c20154f59ed
+    ports:
+      - "8983:8983"
+#    build:
+#      context: "./docker/solr"
+#      dockerfile: "Dockerfile"
+    environment:
+      SOLR_HOST: localhost
+
+  Memcached:
+    image: memcached:1.6.18
+    ports:
+    - "11211:11211"
+    entrypoint: bash -c "memcached -u memcache"
+
